@@ -1,7 +1,7 @@
 var typed = new Typed('#element', {
-    strings: ['Software Developer','Graphic Designer','Mentor', 'Educator.'],
+    strings: ['Software Developer', "Student", "Graphic Designer"],
     typeSpeed: 70,
-  });
+});
 
 
 const prevEle = document.querySelector(".prev")
@@ -12,12 +12,12 @@ const imgEle = document.querySelectorAll(".pr-img")
 let currImg = 1;
 let timeout;
 
-nextEle.addEventListener("click", ()=>{
+nextEle.addEventListener("click", () => {
     currImg++
     clearInterval(timeout)
     updateImg()
 })
-prevEle.addEventListener("click", ()=>{
+prevEle.addEventListener("click", () => {
     currImg--
     clearTimeout(timeout)
     updateImg()
@@ -25,15 +25,15 @@ prevEle.addEventListener("click", ()=>{
 
 updateImg()
 
-function updateImg(){
-    if(currImg > imgEle.length){
+function updateImg() {
+    if (currImg > imgEle.length) {
         currImg = 1
-    }else if(currImg < 1){
+    } else if (currImg < 1) {
         currImg = imgEle.length
     }
     imgContainerEle.style.transform = `translateX(${-(currImg - 1) * 100}%)`
 
-    timeout = setTimeout(()=>{
+    timeout = setTimeout(() => {
         currImg++
         updateImg()
     }, 2000)
